@@ -4,9 +4,6 @@
   "affected": {
     "defaultBase": "master"
   },
-  "cli": {
-    "defaultCollection": "@nrwl/node"
-  },
   "workspaceLayout": {
     "appsDir": "./examples",
     "libsDir": "./libs"
@@ -26,14 +23,6 @@
       }
     }
   },
-  "targetDependencies": {
-    "build": [
-      {
-        "target": "build",
-        "projects": "dependencies"
-      }
-    ]
-  },
   "generators": {
     "@nrwl/node": {
       "setParserOptionsProject": true
@@ -43,6 +32,11 @@
       "publishable": true,
       "setParserOptionsProject": true,
       "testEnvironment": "node"
+    }
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"]
     }
   }
 }
